@@ -13,11 +13,20 @@
 	<p>プレイヤーIDまたは国IDを入力して下さい</p>
 	<table>
 		<tr>
-		 <th>プレイヤーID</th>
-		 <form action="">
-		 <td><input type="text" name="player_id"></td>
-		 <td></td>
-		 </form>
+			<th>プレイヤーID</th>
+			<form action="#" method="post">
+				<td><input type="text" name="player_id"></td>
+				<td><input class="search_btn" type="submit" name="pltest"
+					value="選手検索"></td>
+			</form>
+		</tr>
+		<tr>
+			<th>国ID</th>
+			<form action="#" method="post">
+				<td><input type="text" name="countory_id"></td>
+				<td><input class="search_btn" type="submit" name="cotest"
+					value="国指定検索"></td>
+			</form>
 		</tr>
 	</table>
 </body>
