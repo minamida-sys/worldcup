@@ -1,6 +1,7 @@
 package worldcup;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @WebServlet("/SearchServlet")
 public class SearchServlet extends HttpServlet {
@@ -26,7 +26,6 @@ public class SearchServlet extends HttpServlet {
 
 		String btn = request.getParameter("submit");
 
-		HttpSession session = request.getSession();
 		RequestDispatcher rd;
 
 		if("選手検索".equals(btn)) {
@@ -39,7 +38,6 @@ public class SearchServlet extends HttpServlet {
 			PlayerBean bean = player.getPlayer(plid);
 
 			if(bean != null) {
-				session.setAttribute("user_db", bean);
 				rd = request.getRequestDispatcher("./PlayerServlet");
 			} else {
 				rd = request.getRequestDispatcher("./WorldCup/searchid.jsp");
@@ -48,11 +46,21 @@ public class SearchServlet extends HttpServlet {
 
 		} else if("国指定検索".equals(btn)) {
 
-			session.removeAttribute("login_db");
-			session.removeAttribute("user_db");
-			response.sendRedirect("./WEB-sample13_14/login.jsp");
-		}
+			String id  = request.getParameter("country_id");
+			int coid = Integer.valueOf(id);
 
+			Country country = new Country();
+
+			ArrayList<PlayerBean> beanList = country.getCountry(coid);
+
+			if(beanList != null) {
+				rd = request.getRequestDispatcher("./CountryServlet");
+			} else {
+				rd = request.getRequestDispatcher("./WorldCup/searchid.jsp");
+			}
+			rd.forward(request, response);
+
+		}
 	}
 
 	/**

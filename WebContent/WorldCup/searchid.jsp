@@ -22,7 +22,7 @@
 				</tr>
 				<tr>
 					<th>国ID</th>
-					<td><input type="number" name="countory_id"></td>
+					<td><input type="number" name="country_id"></td>
 					<td><input class="search_btn" type="submit" name="submit"
 						value="国指定検索"></td>
 				</tr>
