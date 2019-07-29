@@ -2,7 +2,6 @@ package worldcup;
 
 
 import java.io.Serializable;
-import java.sql.Date;
 
 public class PlayerBean implements Serializable {
 
@@ -14,7 +13,7 @@ public class PlayerBean implements Serializable {
 	private String position;
 	private String playername;
 	private String club;
-	private String bath;
+	private String birth;
 	private int height;
 	private int weight;
 
@@ -25,7 +24,7 @@ public class PlayerBean implements Serializable {
 		this.position = "";
 		this.playername = "";
 		this.club = "";
-		this.bath = "";
+		this.birth = "";
 		this.height = 0;
 		this.weight = 0;
 	}
@@ -78,12 +77,12 @@ public class PlayerBean implements Serializable {
 		this.club = club;
 	}
 
-	public Date getBath() {
-		return bath;
+	public String getBath() {
+		return birth;
 	}
 
-	public void setBath(Date bath) {
-		this.bath = bath;
+	public void setBath(String birth) {
+		this.birth = birth;
 	}
 
 	public int getHeight() {
