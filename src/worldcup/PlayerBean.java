@@ -1,6 +1,5 @@
 package worldcup;
 
-
 import java.io.Serializable;
 
 public class PlayerBean implements Serializable {
@@ -77,11 +76,11 @@ public class PlayerBean implements Serializable {
 		this.club = club;
 	}
 
-	public String getBath() {
+	public String getBirth() {
 		return birth;
 	}
 
-	public void setBath(String birth) {
+	public void setBirth(String birth) {
 		this.birth = birth;
 	}
 

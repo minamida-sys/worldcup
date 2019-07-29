@@ -12,24 +12,22 @@
 	<div>
 		<h1>ようこそワールドカップ検索サイトへ！</h1>
 		<p>プレイヤーIDまたは国IDを入力して下さい</p>
-		<table border="1">
-			<tr>
-				<th>プレイヤーID</th>
-				<form action="#" method="post">
-					<td><input type="text" name="player_id"></td>
-					<td><input class="search_btn" type="submit" name="pltest"
+		<form action="../SearchServlet" method="post">
+			<table border="1">
+				<tr>
+					<th>プレイヤーID</th>
+					<td><input type="number" name="player_id"></td>
+					<td><input class="search_btn" type="submit" name="submit"
 						value="選手検索"></td>
-				</form>
-			</tr>
-			<tr>
-				<th>国ID</th>
-				<form action="#" method="post">
-					<td><input type="text" name="countory_id"></td>
-					<td><input class="search_btn" type="submit" name="cotest"
+				</tr>
+				<tr>
+					<th>国ID</th>
+					<td><input type="number" name="countory_id"></td>
+					<td><input class="search_btn" type="submit" name="submit"
 						value="国指定検索"></td>
-				</form>
-			</tr>
-		</table>
+				</tr>
+			</table>
+		</form>
 	</div>
 </body>
 </html>

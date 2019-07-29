@@ -18,7 +18,7 @@ public class PlayerDao {
 	 * @return	選手情報（ResultSet）
 	 * @throws SQLException
 	 */
-	public ResultSet selectPlayer(String playerId) throws SQLException {
+	public ResultSet selectPlayer(int playerId) throws SQLException {
 
 		try {
 
@@ -27,8 +27,8 @@ public class PlayerDao {
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/worldcup2014",
 											  "root",
 											  "");
-			ps = con.prepareStatement("SELECT p.id, c.name, p.uniform_num, p.position, p.name, p.club, p.birth, p.height, p.weight FROM players p INNER JOIN countries c ON p.country_id = c.id WHERE p.id = ?");
-			ps.setString(1, playerId);
+			ps = con.prepareStatement("SELECT p.id, c.name AS cname, p.uniform_num, p.position, p.name AS pname, p.club, p.birth, p.height, p.weight FROM players p INNER JOIN countries c ON p.country_id = c.id WHERE p.id = ?");
+			ps.setInt(1, playerId);
 			rs = ps.executeQuery();
 
 		} catch(ClassNotFoundException ce) {
